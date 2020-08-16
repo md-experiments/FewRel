@@ -11,7 +11,7 @@ from torch.autograd import Variable
 from torch.nn import functional as F
 # from pytorch_pretrained_bert import BertAdam
 from transformers import AdamW, get_linear_schedule_with_warmup
-from tqdm import tqdm
+from tqdm import trange
 
 
 def warmup_linear(global_step, warmup_step):
@@ -192,7 +192,7 @@ class FewShotREFramework:
         iter_right = 0.0
         iter_right_dis = 0.0
         iter_sample = 0.0
-        for it in tqdm(range(start_iter, start_iter + train_iter)):
+        for it in trange(start_iter, start_iter + train_iter)):
             if pair:
                 batch, label = next(self.train_data_loader)
                 if torch.cuda.is_available():
