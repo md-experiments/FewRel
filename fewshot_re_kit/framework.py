@@ -192,7 +192,7 @@ class FewShotREFramework:
         iter_right = 0.0
         iter_right_dis = 0.0
         iter_sample = 0.0
-        for it in trange(start_iter, start_iter + train_iter)):
+        for it in trange(start_iter, start_iter + train_iter):
             if pair:
                 batch, label = next(self.train_data_loader)
                 if torch.cuda.is_available():
